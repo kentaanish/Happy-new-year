@@ -1,0 +1,124 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+<head>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .logo-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+    
+    .logo {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+      font-size: 48px;
+      color: #ff6600;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotate 4s infinite linear;
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: confetti-fall 3s infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(0, 100vh);
+      }
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+    .cell{
+       
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+      font-size: 36px;
+      color:  #ff6600;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      position: absolute;
+      display: contents;
+      top: 25%;
+      left:20%;
+      
+    }
+      
+   
+  
+
+    
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="logo">Happy New Year! 2024</div> 
+  </div>
+  <div>
+    <div class="parent"><h1 class="cell">Happy New Year!<br>2024<br> </h1></div>
+    <div><h3>"To my dear parents, words cannot express how grateful I am for your love and guidance.</h3>
+        <div><h3>You have always been there for me, and I am truly blessed to have you in my life. </h3></div> 
+         <div><h3>May this year bring you happiness and good health. Happy New Year!"</h3></div>
+         <div><h1>By Anish kumar!<br>thank you!</h1></div>
+
+
+  </div>
+
+  <script>
+    
+    const logoElement = document.querySelector('.logo');
+    setInterval(() => {
+      const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      logoElement.style.color = randomColor;
+    }, 2000);
+    const colors = ["#fbc531", "#ff6b6b", "#48dbfb", "#1dd1a1", "#ff9ff3"]; // Array of colors for confetti
+
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]; // Randomly select a color
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 3000);
+    }
+
+    setInterval(createConfetti, 200);
+  </script>
+</body>
+</html>
+
+
